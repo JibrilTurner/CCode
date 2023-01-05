@@ -17,7 +17,7 @@ struct user user1; // Global declaration of structure
 
 char password_checker(char password[])
 {
-    char passworkedkey[50] = "a";  // declaration of char array
+    char passworkedkey[50] = "12345";  // declaration of char array
     int value; int a;
     strcpy(user1.password, passworkedkey);
 
@@ -32,7 +32,7 @@ char password_checker(char password[])
             if(value==0)
             {
                 printf("\nPassword_correct\n");
-                printf("Welcome to the Bank Of Jibril\n");
+                printf("\nWelcome to the Bank Of Jibril\n");
                 a = 1;
             }
             else
@@ -49,7 +49,7 @@ char password_checker(char password[])
 
 int username_checker(char username[])
 {
-    char usernamekey[50] = "a";  // declaration of char array
+    char usernamekey[50] = "test";  // declaration of char array
     int value; int a;
     strcpy(user1.name, usernamekey);
 
@@ -82,9 +82,7 @@ int username_checker(char username[])
 
 
 
-
-
-int   program_open_and_close(int userexit_test)
+int program_menu_and_close(int userexit_test)
 {
     int exitcondition = 0;  // declaration of char array
     int value; int a;
@@ -92,7 +90,7 @@ int   program_open_and_close(int userexit_test)
     do
     {
 
-        printf("#######################################################");
+        printf("\n#######################################################");
         printf("\n##                                                   ##");
         printf("\n##                                                   ##");
         printf("\n##                 0.deposit                         ##");
@@ -118,7 +116,7 @@ int   program_open_and_close(int userexit_test)
             printf("How much would you like to Deposit\n");
             scanf("%d", &amountD);
             user1.acctotal = user1.acctotal+amountD;
-            printf("%d", user1.acctotal);
+            printf("%d$ has_been_deposited", user1.acctotal);
         }
         else if(userexit_test == 1) // false
         {
@@ -133,21 +131,18 @@ int   program_open_and_close(int userexit_test)
             }
             else
             user1.acctotal = user1.acctotal-amountW;
-            printf("%d", user1.acctotal);
+            printf("%d$ has_been_withdrew", user1.acctotal);
         }
         else if(userexit_test == 2) // false
         {
-
             printf("\ntest 2\n");
-            printf("%d", user1.acctotal);
-
+            printf("Your_Balance_is_%d$", user1.acctotal);
         }
         else if(userexit_test == 3) // false
         {
             printf("\nThis is info\n");
             printf("The Name Registered is: %s \n", user1.name);
             printf("The Password Registered: %s \n", user1.password);
-
         }
         else
         {
@@ -166,10 +161,11 @@ int main()
     char password[25];
     char username[30];
     int choice;
+    int loginchoice;
 
     username_checker(username);
     password_checker(password);
-    program_open_and_close(choice);
+    program_menu_and_close(choice);
 
         return 0;
     }

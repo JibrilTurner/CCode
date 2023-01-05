@@ -1,132 +1,62 @@
+//
+// Created by mathe on 12/26/2022.
+//
+//
+// Created by mathe on 12/23/2022.
+//
 #include <stdio.h>
-#include <string.h>
+#include <conio.h>
+#define MAX 1
+#define MAX_ACCOUNTS 10
 
-struct student
+
+
+struct user
 {
-    int id;
     char name[20];
-    float percentage;
+    char password[20];
 };
-struct student record; // Global declaration of structure
+
+struct user arr_user[MAX_ACCOUNTS];
 
 
-int username_checker(char username[])
+char user_register(char password[])
 {
-    char usernamekey[50] = "a";  // declaration of char array
-    int value; int a;
-    strcpy(record.name, usernamekey);
 
-    do
+    char *filename = "test.txt";
+
+    // open the file for writing
+    FILE *fp = fopen(filename, "a");
+    if (fp == NULL)
     {
-        printf("Enter_username. ");
-        scanf("%s", username);
-
-        value=strcmp(usernamekey , username);//when comparing strings
-
-        if(value==0)
-        {
-            printf("\nUsername_correct\n");
-            a = 1;
-        }
-        else
-        {
-            printf("Re_Enter_Username \n \n ");
-            a = 0;
-        }
+        printf("Error opening the file %s", filename);
+        return -1;
     }
-    while(value != 0);
-    return a ;
 
-}
-
-
-
-
-int programopenandclose(int userexit_test)
-{
-    int exitcondition = 0;  // declaration of char array
-    int value; int a;
-
-    do
+    int i;
+    for(i = 0; i < MAX; i++ )
     {
 
-        printf("\n#######################################################");
-        printf("\n##                                                   ##");
-        printf("\n##                  Welcome %s                        ##",  record.name   );
-        printf("\n##                                                   ##");
-        printf("\n##                                                   ##");
-        printf("\n##                 0.deposit                         ##");
-        printf("\n##                 1.withdrawl                       ##");
-        printf("\n##                 2.show_balance                    ##");
-        printf("\n##                 3.info                            ##");
-        printf("\n##                 4.exit                            ##");
-        printf("\n##                                                   ##");
-        printf("\n##                                                   ##");
-        printf("\n##                                                   ##");
-        printf("\n##                                                   ##");
-        printf("\n#######################################################");
 
-        scanf("%d", &userexit_test);
+        printf("\nEnter Username of User%d\n\n", i + 1);
+        printf("Enter Username: ");
+        scanf("%s", arr_user[i].name);
+        printf("%s\n",arr_user[i].name);
 
 
-        if(userexit_test == exitcondition) // false
-        {
+        printf("\nEnter Password of User%d\n\n", i + 1);
+        printf("Enter Password: ");
+        scanf("%s", arr_user[i].password);
+        printf("%s\n",arr_user[i].password);
 
-            printf("deposit");
 
-        }
-        else if(userexit_test == 1) // false
-        {
-            printf("test 1");
-        }
-        else if(userexit_test == 2) // false
-        {
-            printf("test 2");
-        }
-        else if(userexit_test == 3) // false
-        {
-            printf("test 3\n");
+        fprintf(fp, "%s\n",arr_user[i].name);
+        fprintf(fp, "%s\n",arr_user[i].password);
 
-            printf(" Name is: %s \n", record.name);
+        fclose(fp);    // close the file
 
-        }
-        else
-        {
-            printf("test 4");
-            value = 0;
-        }
+
     }
-    while(value != 0);
-    return a ;
-
-}
-
-
-
-
-
-
-
-
-
-
-
-int main()
-{
-
-
-
-
-    char password[25];
-    char username[30];
-    int choice;
-
-    username_checker(username);
-   programopenandclose(choice);
-
-
-
-
 
 
 
@@ -134,3 +64,37 @@ int main()
     return 0;
 }
 
+
+
+
+
+
+
+char password_checker(char password[])
+{
+
+
+    return 1 ;
+
+}
+
+
+
+
+int main()
+{
+
+    char password[25];
+    char rpassword[25];
+
+    char username[30];
+    int choice;
+    int loginchoice;
+    user_register(rpassword);
+
+    password_checker(password);
+    // username_checker(username);
+
+
+    return 0;
+}

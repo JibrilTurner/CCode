@@ -6,12 +6,12 @@
 int main()
 {
 
-    int n;
-    int i;     int a;
+    int i;
 
-    scanf("%d", &n);
 
-    for (i = 0; i < 3;
+    for (i = 0; i < 3; i++){
+        printf("%d\n",i);
+
     }
 
   	// Complete the code to print the pattern.

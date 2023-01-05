@@ -20,10 +20,7 @@ int main()
     tplayer1.attack = 35;
     strcpy(tplayer1.name, "jeff");
     strcpy(tplayer1.classs, "mage");
-
     printf("Your level %lf", tplayer1.level );
-
-
     return 0;
 }
 

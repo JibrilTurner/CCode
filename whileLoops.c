@@ -32,7 +32,7 @@ int main()
 {
 
 
-wloop (3);
+//wloop (3);
 //dowloop(5);
     return 0;
 }
