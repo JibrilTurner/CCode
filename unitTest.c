@@ -1,11 +1,12 @@
 //
-// Created by mathe on 1/4/2023.
+// Created by mathe on 1/5/2023.
 //
 
 #include <stdio.h>
 #include <time.h>
 #include <string.h>
 #include <malloc.h>
+#include <math.h>
 
 
 int add(int a, int b)
@@ -23,35 +24,40 @@ char* reverseString(char string[25])
 }
 
 void test1()
-    {
-        int solu = 4;
-        int expectedOutput   = add(2,2);
+{
+    int test[5] = {add(5,5), add(5,2), add(2,10)};
+    int solu[5] = {10,7,5};
 
-        if (solu == expectedOutput)
-        {
-            printf("Test1 Passed\n");
-        }
-        else
-        {
-            printf("Test1 Failed\n");
+    for (int i = 0; i < 5; i++) {
+        if (test[i] == solu[i]) {
+            printf("Test1.%d Passed \n", i);
+        } else {
+            printf("Test1.%d Failed \n", i);
         }
     }
+}
+
+
+
 
 void test2()
 {
-    char solu[25] = "abc";
-    char test[25] = "cba";
-    int cmpOutput;
+    char test[5][10] = {"123","321", "594","abc","fail"};
+    char solu[5][10] = {"321","123", "495","cba","fail"};
+    int cmpOutPut;
+    size_t size = sizeof(test) / sizeof(test[0]);
 
-    cmpOutput = strcmp(test, reverseString(solu));
+    for (int i = 0; i < size; i++)
+    {
 
-    if (cmpOutput == 0)
-    {
-        printf("Test2 Passed %s\n",test);
-    }
-    else
-    {
-        printf("Test2 Failed %s\n",test);
+        //printf("%s ", test[i]);
+        cmpOutPut = strcmp(test[i], reverseString(solu[i]));
+        if (cmpOutPut == 0) {
+            printf("Test2.%d Passed \n",i);
+        } else {
+            printf("Test2.%d Failed \n",i);
+        }
+
     }
 }
 
@@ -64,4 +70,3 @@ int main()
 
     return 0;
 }
-
