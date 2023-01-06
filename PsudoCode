@@ -1,0 +1,26 @@
+0000 // input
+0000 // flip
+0000 // div 2
+0000 // mult 2
+0000 // flip
+
+8000 // input
+0008 // flip
+0004 // div 2
+0008 // mult 2
+8000 // flip
+
+
+\*
+a + b
+a + b = c
+return c
+
+test = 5 5
+solu = 10
+a + b
+if test == solu
+print (PASS)
+else
+print (FAILED)
+*/
