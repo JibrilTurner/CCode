@@ -37,3 +37,17 @@ if test[i] == solu[i]
 print "test1.[i] Passed"
 else
 print "test1.[i] Failed"
+
+
+
+char d[i] = 'a', 'b', 'c;;
+char r[i] = '!', '#', '%';
+
+start at 0 end at 3 3=i++
+
+if string[i] == d[i]
+string [i] == r[i]
+else if string[i] == d[i]
+string [i] == d[i]
+else if string[i] == d[i]
+string [i] == r[i]
