@@ -45,9 +45,37 @@ char r[i] = '!', '#', '%';
 
 start at 0 end at 3 3=i++
 
-if string[i] == d[i]
+if string [i] == d[i]
 string [i] == r[i]
 else if string[i] == d[i]
 string [i] == d[i]
 else if string[i] == d[i]
 string [i] == r[i]
+
+// Expected output for program 
+
+
+
+
+
+
+Saved Passwords |  Enter Password | DPassword | RPassword
+
+switch(opt)
+opt 0 = listPasswords
+
+/*
+savedPassword  
+
+Passowrds 
+
+
+
+
+*/ 
+switch(opt) 
+opt 1 = RegisterPassword
+switch(opt) 
+opt 2 = convertPhraseIntoKey
+switch(opt) 
+opt 3 = convertKeyIntoPhrase 
