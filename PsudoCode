@@ -52,6 +52,43 @@ string [i] == d[i]
 else if string[i] == d[i]
 string [i] == r[i]
 
+
+
+
+
+
+
+
+Enter 0 to view saved passwords
+Enter 1 to decrpyt password
+Enter 2 to manange password
+
+Test 0
+Gmail | Jibril2006$ | J$b#$lU$-=# |
+Steam | Pineapple#1 | P#ne%((l#$1 |
+
+Test 1
+Enter Password: Jibril2006$
+Heres the encrypted password: J$b#$lU$-=#
+
+
+Deleate | Copy | Paste | Exit        |  // use arrow keys
+Gmail   | Jibril2006$  | J$b#$lU$-=# |  // to intract with the menu
+Steam   | Pineapple#1  | P#ne%((l#$1 |
+
+KEY
+5 6 5 5
+4 5 4 4
+3 4 3 3
+2 3 2 2
+1 2 1 1
+ -1
+
+
+33 48 58 65 97   // low
+47 57 65 91 123  // high
+
+
 // Expected output for program 
 
 
@@ -79,3 +116,14 @@ switch(opt)
 opt 2 = convertPhraseIntoKey
 switch(opt) 
 opt 3 = convertKeyIntoPhrase 
+
+void RegisterPassword(char [])
+
+543 // flipped then write to text
+345 // read from text then flippedd
+
+
+
+int ph
+
+ph = num + 1

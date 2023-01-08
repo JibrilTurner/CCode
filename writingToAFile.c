@@ -10,7 +10,7 @@ int main()
     FILE *fptr;
 
     // use appropriate location if you are using MacOS or Linux
-    fptr = fopen("C:\\test.txt","w");
+    fptr = fopen("test.txt","w");
 
     if(fptr == NULL)
     {
