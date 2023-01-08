@@ -10,6 +10,7 @@ char buff[25];
 int ibuff;
 int i ;
 int num;
+char line[256]; /* or other suitable maximum line size */
 
 
 char* reverseString(char string[25])
@@ -71,7 +72,7 @@ void read()
     fclose(fp);
 }
 
-char find()
+char* find(char string[256])
 {
     int lineNumber;
     printf("\nwhat line would you like");
@@ -80,13 +81,14 @@ char find()
     int count = 0;
     if ( file != NULL )
     {
-        char line[256]; /* or other suitable maximum line size */
+
+
         while (fgets(line, sizeof line, file) != NULL) /* read a line */
         {
             if (count == lineNumber)
             {
                 printf("%s ", line);
-                return line;
+                return  line;
                 fclose(file);
             }
             else
@@ -118,8 +120,9 @@ void write()
     fclose(fptr);
 }
 
+
 void key(){
-    int i;
+    int g;
 
     char da = 'a';
     char db = 'e';
@@ -134,32 +137,39 @@ void key(){
     char re = '&';
 
     int BUZZ_SIZE = 1024;
-    char buff[BUZZ_SIZE];
+    find(line);
+    printf("%s",line);
+
+    char line[BUZZ_SIZE];
     FILE *f = fopen("test.txt", "r");
-    fgets(buff, BUZZ_SIZE, f);
+    fgets(line, BUZZ_SIZE, f);
     fclose(f);
 
-    for(i=0;buff[i]!='\0';i++)
+
+
+    for(g=0;line[g]!='\0';g++)
     {
-        if(buff[i]==ra){
-            buff[i] = da;}
-        else if(buff[i]==rb){
-            buff[i] = db;}
-        else if(buff[i]==rc){
-            buff[i] = dc;}
-        else if(buff[i]==rd){
-            buff[i] = dd;}
-        else if(buff[i]==re){
-            buff[i] = de;}
+        if(line[g]==ra){
+            line[g] = da;}
+        else if(line[g]==rb){
+            line[g] = db;}
+        else if(line[g]==rc){
+            line[i] = dc;}
+        else if(line[g]==rd){
+            line[g] = dd;}
+        else if(line[g]==re){
+            line[g] = de;}
+        printf("%s",line);
+        printf("%c",da);
+        printf("output in key ");
+        puts(line);
     }
-    printf("output in key ");
-    puts(buff);
+
 }
 
 void lock()
 {
-    int i;
-    find();
+    int t;
 
     char a = 'a';
     char b = 'e';
@@ -173,50 +183,55 @@ void lock()
     char rd = '$';
     char re = '&';
 
+    find(line);
+    printf("%s",line);
 
-    for (i = 0; buff[i] != '\0'; i++) {
-        if (buff[i] == a) {
-            buff[i] = ra;
-        } else if (buff[i] == b) {
-            buff[i] = rb;
-        } else if (buff[i] == c) {
-            buff[i] = rc;
-        } else if (buff[i] == d) {
-            buff[i] = rd;
-        } else if (buff[i] == e) {
-            buff[i] = re;
+    printf("this is %s",line);
+
+    for (t = 0; line[t] != '\0'; t++) {
+        if (line[t] == a) {
+            line[t] = ra;
+        } else if (line[t] == b) {
+            line[t] = rb;
+        } else if (line[t] == c) {
+            line[t] = rc;
+        } else if (line[t] == d) {
+            line[t] = rd;
+        } else if (line[t] == e) {
+            line[t] = re;
         }
         //else //This part is not neccessary
         //continue;
-    }
 
-    FILE *fptr;
-    // use appropriate location if you are using MacOS or Linux
-    fptr = fopen("test.txt","a+");
-    if(fptr == NULL)
-    {
-        printf("Error!");
-        exit(1);
-    }
-    fprintf(fptr,"%s %s",(buff) , (buff));
-    fclose(fptr);
 
-    printf("output in lock ");
-    puts(buff);
+        FILE *fptr;
+        // use appropriate location if you are using MacOS or Linux
+        fptr = fopen("test.txt", "a+");
+        if (fptr == NULL) {
+            printf("Error!");
+            exit(1);
+        }
+        printf(" %s", line);
+
+        fprintf(fptr, "%s %s", (line), (line));
+        fclose(fptr);
+
+        printf("output in lock ");
+        puts(line);
+    }
 }
 
 
 
 int main ()
 {
-
-    //getlinecount();
-  //  write();
-   // read();
-    //outputfirstnum();
-    find();
-    lock();
-//    key();
+    //outputfirstnum(); // get lowest number
+    //getlinecount();   // get highest number
+    //write();          // will ask the user to add to the txt file
+    //read();           // will dump out all stored values
+    //find();           // will find a password based on a index
+    //lock();           // will convert the chars into symbols
+    //key();            // will convert the symbols into chars
 
     return(0);
 }
