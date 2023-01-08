@@ -174,7 +174,7 @@ void lock()
     char re = '&';
 
 
-    for (i = 0; find[i] != '\0'; i++) {
+    for (i = 0; buff[i] != '\0'; i++) {
         if (buff[i] == a) {
             buff[i] = ra;
         } else if (buff[i] == b) {
