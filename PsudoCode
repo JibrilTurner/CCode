@@ -122,8 +122,8 @@ void RegisterPassword(char [])
 543 // flipped then write to text
 345 // read from text then flippedd
 
+write();
+crush // input
+iLikeweed // input
 
-
-int ph
-
-ph = num + 1
+lock();

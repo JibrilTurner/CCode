@@ -6,6 +6,10 @@
 #include <string.h>
 #include <time.h>
 
+char buff[25];
+int ibuff;
+int i ;
+int num;
 
 
 char* reverseString(char string[25])
@@ -14,32 +18,88 @@ char* reverseString(char string[25])
     strcpy(rString, strrev(string));
     return rString;
 }
-char buff[25];
-int ibuff;
-int i ;
-int num;
 
-
-
-
-
-
-void read()
+int getlinecount()
 {
-    int BUZZ_SIZE = 2;
+    int maxFileName = 100;
+    int count = 0; // Line counter (result)
+    char filename[maxFileName];
+    char c;
+    FILE *fp = fopen("test.txt", "r");
+    if (fp == NULL)    // Check if file exists
+    {
+        printf("Could not open file %s", filename);
+        return 1;
+    }
+    for (c = getc(fp); c != EOF; c = getc(fp))    // Extract characters from file and store in character c
+    {
+        if (c == '\n') // Increment count if this character is newline
+            count = count + 1;
+    }
+    // Close the file
+    fclose(fp);
+    printf("%d\n", count);
+    return count;
+}
+
+int outputfirstnum()
+{
+    int BUZZ_SIZE = 3;
     char buff[BUZZ_SIZE];
     FILE *fptr = fopen("test.txt", "r");
     fgets(buff, BUZZ_SIZE, fptr);
     int num = atoi(buff);
-    printf(" %d \n" ,num);
-    fclose(fptr);
+    printf("\n%d\n",num );
+    return num  ;
+}
+void read()
+{
+    char *filename = "test.txt";
+    FILE *fp = fopen(filename, "r");
+
+    if (fp == NULL)
+    {
+        printf("Error: could not open file %s", filename);
+    }
+    // reading line by line, max 256 bytes
+    const unsigned MAX_LENGTH = 256;
+    char buffer[MAX_LENGTH];
+    while (fgets(buffer, MAX_LENGTH, fp))
+        printf("%s", buffer);
+
+    // close the file
+    fclose(fp);
 }
 
-
+char find()
+{
+    int lineNumber;
+    printf("\nwhat line would you like");
+    scanf("%d", &lineNumber);
+    FILE *file = fopen("test.txt", "r");
+    int count = 0;
+    if ( file != NULL )
+    {
+        char line[256]; /* or other suitable maximum line size */
+        while (fgets(line, sizeof line, file) != NULL) /* read a line */
+        {
+            if (count == lineNumber)
+            {
+                printf("%s ", line);
+                return line;
+                fclose(file);
+            }
+            else
+            {
+                count++;
+            }
+        }
+        fclose(file);
+    }
+}
 void write()
 {
     FILE *fptr;
-    // use appropriate location if you are using MacOS or Linux
     fptr = fopen("test.txt","a");
     if(fptr == NULL)
     {
@@ -47,25 +107,16 @@ void write()
         exit(1);
     }
     printf("Write: ");
-    scanf("%s",(&buff));
-    num++;
+    scanf("%s",(buff));
 
-    int ph = num + 1;
-    if (ph >= num)
+    if (num > getlinecount())
     {
-        read();
-        printf(" %d \n" ,num);
+        printf("num inside ph greater than num  %d \n" ,num);
         num++;
     }
-    fprintf(fptr,"\n%d %s",(ph),(buff));
-    printf(" %d %s\n" ,num, buff);
-
-    read();
+    fprintf(fptr,"\n%d %s",(getlinecount()),(buff));
     fclose(fptr);
 }
-
-
-
 
 void key(){
     int i;
@@ -105,9 +156,10 @@ void key(){
     puts(buff);
 }
 
-
-void lock() {
+void lock()
+{
     int i;
+    find();
 
     char a = 'a';
     char b = 'e';
@@ -122,13 +174,7 @@ void lock() {
     char re = '&';
 
 
-    int BUZZ_SIZE = 1024;
-    char buff[BUZZ_SIZE];
-    FILE *f = fopen("test.txt", "r");
-    fgets(buff, BUZZ_SIZE, f);
-    fclose(f);
-
-    for (i = 0; buff[i] != '\0'; i++) {
+    for (i = 0; find[i] != '\0'; i++) {
         if (buff[i] == a) {
             buff[i] = ra;
         } else if (buff[i] == b) {
@@ -164,12 +210,13 @@ void lock() {
 int main ()
 {
 
-
-    read();
-    write();
-
-     // lock();
-      //key();
+    //getlinecount();
+  //  write();
+   // read();
+    //outputfirstnum();
+    find();
+    lock();
+//    key();
 
     return(0);
 }
