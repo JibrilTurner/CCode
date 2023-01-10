@@ -72,9 +72,9 @@ Enter Password: Jibril2006$
 Heres the encrypted password: J$b#$lU$-=#
 
 
-Deleate | Copy | Paste | Exit        |  // use arrow keys
-Gmail   | Jibril2006$  | J$b#$lU$-=# |  // to intract with the menu
-Steam   | Pineapple#1  | P#ne%((l#$1 |
+Delete   | Copy | Paste | Exit | New Password |  // use arrow keys
+Gmail    | Jibril2006$  | J$b#$lU$-=#         |  // to intract with the menu
+Steam    | Pineapple#1  | P#ne%((l#$1         |
 
 KEY
 5 6 5 5
@@ -124,3 +124,12 @@ void RegisterPassword(char [])
 
 write();
 will ask the user to add to the txt file
+
+
+  #0  .Google         :Tester
+  #1  .Gmail          :whatUncle
+  #2  .Steam          :MastersDegree
+  #3  .Apple          :Haltered
+  #4  .Docs           :Never-mind
+  #99 .1234567891234  :Password
+  #Index .CompanyName :Password
