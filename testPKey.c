@@ -71,13 +71,6 @@ const char* find()
     }
 }
 
-void replace()
-{
-    find(line);
-    printf("%s",line);
-}
-
-
 const char* outputString()
 {
 
@@ -100,6 +93,14 @@ const char* outputString()
     puts(line);
     return 0;
 }
+
+void replace()
+{
+    outputString(line);
+    printf("%s",line);
+}
+
+
 
 
 
