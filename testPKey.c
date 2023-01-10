@@ -7,11 +7,9 @@
 #include <time.h>
 #include <conio.h>
 
-char buff[25];
-int ibuff;
-int i ;
+char buff[256];
 int num;
-char line[256]; /* or other suitable maximum line size */
+char line[256];
 
 char* reverseString(char string[25])
 {
@@ -107,7 +105,6 @@ void go()
 
 
 
-    outputString(line);
 
     /* Remove extra new line character from stdin */
     fflush(stdin);
@@ -131,13 +128,13 @@ void go()
      * Read line from source file and write to destination
      * file after replacing given line.
      */
-    count = 0;
+    count = 2;
     while ((fgets(buffer, BUFFER_SIZE, fPtr)) != NULL)
     {
         count++;
 
         if (count == line)
-            fputs(newline, fTemp);
+            fputs(  newline, fTemp);
         else
             fputs(buffer, fTemp);
     }
@@ -170,7 +167,7 @@ void write()
         printf("num inside ph greater than num  %d \n" ,num);
         num++;
     }
-    fprintf(fptr,"\n%d %s",(getLineCount()),(buff));
+    fprintf(fptr,"\n%d %s\n",(getLineCount()),(buff));
     fclose(fptr);
 }
 
@@ -187,7 +184,7 @@ void read()
     const unsigned MAX_LENGTH = 256;
     char buffer [MAX_LENGTH];
     while (fgets(buffer, MAX_LENGTH, fp))
-        printf("     %s",buffer);
+        printf("                   %s",buffer);
     // close the file
     fclose(fp);
 }
@@ -294,11 +291,38 @@ const char*  lock()
 
 }
 
-void menuTopBar()
+void testMenuTopBar()
 {
-    printf("| ^Delete | Copy | ^Paste | New Password | Encrypt | Decrypt | Exit ^| ");
+    printf("| ^Void | Void | ^Void | Void | Void | Void | Exit ^| \n");
 
     read();
+    printf("\n|   0   |   1  |   ^2   |       3      |    4    |Enter:                     ");
+
+    int opt;
+
+    scanf("%d",&opt);
+    if (opt == 0){
+        printf("Run Void()");
+    }
+    else if (opt == 1)
+    {
+        printf( "Run Void");
+    }
+    else
+    {
+        printf("Run Exit");
+
+        die();
+    }
+}
+
+void menuTopBar()
+{
+    printf("| ^Delete | Copy | ^Paste | New Password | Encrypt | Decrypt | Exit ^| \n");
+
+    read();
+    printf("\n|   0   |   1  |   ^2   |       3      |    4    |Enter:                     ");
+
     int opt;
 
     scanf("%d",&opt);
@@ -326,8 +350,13 @@ void menuTopBar()
         write();
         menuTopBar();
     }
+    else if (opt == 999){
+        printf("Run testMenuTopBar()\n");
+        testMenuTopBar();
+    }
     else{
         printf("Run Exit");
+
         die();
     }
 
@@ -338,19 +367,20 @@ int main ()
     //write();          //Done// will ask the user to add to the txt file;
     //read();           //Done// will dump out all stored values
 
-    //key();            //Not Done// will convert the symbols into chars
-    //lock();           //Not Done// will convert the chars into symbols
+    //key();            //Not Done needs copyAndPaste()// will convert the symbols into chars
+    //lock();           //Not Done needs copyAndPaste()// will convert the chars into symbols
 
-    //go();             //Not Done// will go to selected line and then allow for modification of the string, uses outputString() -> find()
-    //find();           //Done// will find a password based on a index
+    go();             //Not Done// will go to selected line and then allow for modification of the string, uses outputString() -> find()
+    //find();           //Done// will find a password based on an index
     //outputFirstNum(); //Done// get the lowest number
     //outputString();   //Done// will ignore the number and output the string of a write();
     //getLineCount();   //Done// get highest number
 
-    //menuTopBar();     //Not Done// Will display and Add a menu (the god Function)
+    //menuTopBar();     //Not Done// Will display Functions and Add  a menu (the god Function)
+    //testMenuTopBar(); //Not Don// Will display test functions and Add a menu (A Superset of the god Function)
 
-    //delete();         //Not Done// will go to selected line then will delete it then subtract all indexes below it by one go() -> outputString() -> find()
-    //copyAndPaste();   //Not Done// will copy the password on a line number, then allow the user to paste that password on another line number
-    //clear();          //Not Done// will clear out the txt file
+    //clear();          //Not Done Or Written// will clear out the txt file
+    //delete();         //Not Done Or Written Needs go()// will go to selected line then will delete it then subtract all indexes below it by one go() -> outputString() -> find()
+    //copyAndPaste();   //Not Done Or Written Needs go()// will copy the password on a line number, then allow the user to paste that password on another line number
     return(0);
 }
