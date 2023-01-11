@@ -18,14 +18,6 @@ int add(int a, int b)
 
 char* reverseString(char string[25])
 {
-    b = getch();
-    switch (b)
-    {
-
-    }
-}
-}
-}{
     char *rString = malloc(30);
     strcpy(rString, strrev(string));
     return rString;
@@ -44,9 +36,6 @@ void test1()
         }
     }
 }
-
-
-
 
 void test2()
 {
